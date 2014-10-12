@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+    <bean id="lwbRetrievalService" class="org.iie.service.impl.LwbRetrievalServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+    <bean id="lwbStatisticsService" class="org.iie.service.impl.LwbStatisticsServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+    <bean id="lwbSpecialService" class="org.iie.service.impl.LwbSpecialServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+    <bean id="lwbSpreadService" class="org.iie.service.impl.LwbSpreadServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+    
+    <bean id="lwbTopicService" class="org.iie.service.impl.LwbTopicServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+    
+    
+    <bean id="lwbSortService" class="org.iie.service.impl.LwbSortServiceImpl" scope="singleton">
+        <property name="baseDao" ref="baseDao" />
+    </bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+   
+    <!--长微博话题-->
+    <bean id="lwbTopicAction" class="org.iie.action.LwbTopicAction" scope="prototype">
+        <property name="lwbTopicService" ref="lwbTopicService" />
+    </bean>
+    
+    <!--长微博分类-->
+    <bean id="lwbSortAction" class="org.iie.action.LwbSortAction" scope="prototype">
+        <property name="lwbSortService" ref="lwbSortService" />
+    </bean>
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="lwbTopic" extends="json-default">
+        <action name="lwb_topic_list" class="lwbTopicAction" method="list">
+            <result type="json">
+                <param name="root"> map</param>
+            </result>
+        </action>
+        <action name="lwb_topic_add" class="lwbTopicAction" method="add">
+            <result type="json">
+                <param name="root">errorMsg</param>
+            </result>
+        </action>
+        <action name="lwb_topic_delete" class="lwbTopicAction" method="delete">
+            <result type="json">
+                <param name="root">errorMsg</param>
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="lwbSort" extends="json-default">
+        <action name="lwb_sort_list" class="lwbSortAction" method="list">
+            <result type="json">
+                <param name="root"> map</param>
+            </result>
+        </action>
+        <action name="lwb_sort_update" class="lwbSortAction" method="update">
+            <result type="json">
+                <param name="root"> map</param>
+            </result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+    <bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+        <property name="driver">
+            <value>${iie.jdbc.driverClass}</value>
+        </property>
+        <property name="alias">
+            <value>iieadmin</value>
+        </property>
+        <property name="houseKeepingSleepTime">
+            <value type="java.lang.Long">99000</value>
+        </property>
+        <property name="prototypeCount">
+            <value>5</value>
+        </property>
+        <property name="maximumConnectionCount">
+            <value>50</value>
+        </property>
+        <property name="minimumConnectionCount">
+            <value>5</value>
+        </property>
+        <property name="trace">
+            <value>true</value>
+        </property>
+        <property name="verbose">
+            <value>true</value>
+        </property>
+        <property name="simultaneousBuildThrottle">
+            <value>30</value>
+        </property>
+        <property name="driverUrl" value="${iie.jdbc.jdbcUrl}" />
+        <property name="user" value="${iie.jdbc.user}" />
+        <property name="password" value="${iie.jdbc.password}" />
+    </bean>
+    <bean id="dataSourceFacade" class="org.logicalcobwebs.proxool.ProxoolFacade" destroy-method="shutdown"/>
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/> 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" >
+            <ref local="dataSource"/>
+        </property>
+        <property name="lobHandler" ref="lobHandler"></property> 
+        <property name="mappingDirectoryLocations">
+            <list>
+                <value>classpath:/org/iie/po</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!--                <prop key="hibernate.dialect">
+                org.hibernate.dialect.MySQL5Dialect
+                </prop>-->
+                
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.OracleDialect
+                </prop>
+                <prop key="hibernate.show_sql">
+                    false
+                </prop>
+                <prop key="hibernate.generate_statistics">
+                    true
+                </prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="baseDao"
+          class="org.iie.dao.basedao.BaseDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+</beans>

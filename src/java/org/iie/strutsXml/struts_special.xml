@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="lwbSpecial" extends="json-default">
+        <action name="lwb_special_list" class="lwbSpecialAction" method="list">
+            <result type="json">
+                <param name="root"> map</param>
+            </result>
+        </action>
+        <action name="lwb_special_save" class="lwbSpecialAction" method="save">
+            <result type="json">
+                <param name="root">errorMsg</param>
+            </result>
+        </action>
+        <action name="lwb_special_update" class="lwbSpecialAction" method="update">
+            <result type="json">
+                <param name="root">errorMsg</param>
+            </result>
+        </action>
+        <action name="lwb_special_delete" class="lwbSpecialAction" method="delete">
+            <result type="json">
+                <param name="root">errorMsg</param>
+            </result>
+        </action>
+        <action name="lwb_special_event" class="lwbSpecialAction" method="event">
+            <result type="json">
+                <param name="root">jsonList</param>
+            </result>
+        </action>
+    </package>
+</struts>
