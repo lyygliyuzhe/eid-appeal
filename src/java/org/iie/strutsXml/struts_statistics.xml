@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="lwbStatistics" extends="json-default">   
+        <!--返回xml-->
+        <action name="lwb_statistics_keyword" class="lwbStatisticsAction" method="statKeyword" >  
+            <!-- 下面的name和type不能改动  struts2.1版本后plaintext改为了plainText -->  
+            <result name="xmlMessage" type="plaintext"></result>    
+        </action> 
+        
+        <action name="lwb_statistics_forward" class="lwbStatisticsAction" method="statForward">
+            <result type="json">  
+                <param name="root">forward</param>  
+            </result> 
+        </action>
+         
+        <action name="lwb_statistics_cloud" class="lwbStatisticsAction" method="statCloud">
+            <result type="json">  
+                <param name="root">cloud</param>  
+            </result> 
+        </action>
+    </package>
+</struts>

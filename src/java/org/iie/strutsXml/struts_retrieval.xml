@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="lwbSearch" extends="json-default">
+        <action name="lwb_list" class="lwbRetrievalAction" method="list">
+            <result type="json">
+                <param name="root"> map</param>
+            </result>
+        </action>
+        <action name="lwb_query" class="lwbRetrievalAction" method="query">
+            <result type="json">  
+                <param name="root">message</param>  
+            </result> 
+        </action>
+        <action name="lwb_detail" class="lwbRetrievalAction" method="detail">
+            <result name="xmlMessage" type="plaintext"></result>    
+        </action>
+    </package>
+    
+    <package name="dataExport" extends="struts-default">
+        <action  name="lwb_export" class="lwbRetrievalAction">
+            <result name="success" type="stream">
+                <param name="inputName">inputStream</param>    
+                <param name="contentLength">${fileLength}</param>  
+                <param name="contentType">text/plain;charset=UTF-8</param>  
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>  
+                <param name="bufferSize">4096</param>   
+            </result>
+        </action>
+    </package>
+    
+</struts>

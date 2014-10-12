@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-2-15 10:08:17 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.iie.po.LwbTopic" table="test" catalog="EID">
+        <id name="id" type="long">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="sequence">
+                <param name="sequence">TEST_SEQ</param>
+            </generator>
+        </id>
+       
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+    </class>
+</hibernate-mapping>
