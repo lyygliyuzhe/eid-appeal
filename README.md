@@ -1,4 +1,3 @@
 =======
 eid-appeal
-==========
->>>>>>> origin/develop
+=========
