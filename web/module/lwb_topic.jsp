@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>传播综述</title>
+        <title>传播综述3</title>
         <link rel="stylesheet" type="text/css" href="../plugin/easyui/themes/sunny/easyui.css">
         <link rel="stylesheet" type="text/css" href="../plugin/easyui/themes/icon.css">
         <script type="text/javascript" src="../plugin/jquery-1.10.2.min.js"></script>
